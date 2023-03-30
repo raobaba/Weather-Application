@@ -1,6 +1,8 @@
 import React from 'react'
 import {Box,styled} from "@mui/material";
 import SunSet from "../Assests/Images/bg.jpg";
+import Form from './../Components/Form';
+import Information from './../Components/Information';
 const Component = styled(Box)({
     height:'100vh',
     display:'flex',
@@ -19,7 +21,10 @@ export default function Home() {
   return (
     <Component>
        <Image></Image>
-       <Box></Box>
+       <Box style={{width:'73%',height:'80%'}}>
+         <Form />
+         <Information />
+       </Box>
     </Component>
   )
 }

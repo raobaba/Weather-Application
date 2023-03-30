@@ -1,9 +1,42 @@
-import React from 'react'
-
+import React,{useState} from 'react'
+import {Box,InputBase,Button,styled} from "@mui/material";
+const Container = styled(Box)({
+   background: 'purple',
+   padding: 10,
+})
+const Input = styled(InputBase)({
+    color:'#fff',
+    marginRight:20,
+    fontSize:18
+})
+const GetButton = styled(Button)({
+    background:'#e67e22'
+})
 export default function Form() {
+    const [data,setData] = useState({city:'',country:''})
+    const handleChange = (e)=>{
+        setData({...data,[e.target.name]:e.target.value});
+        console.log(data)
+    }
+    const getWeatherInfo = ()=>{
+        
+    }
   return (
-    <div>
-      
-    </div>
+    <Container>
+       <Input
+       placeholder='City'
+       onChange={(e)=>handleChange(e)}
+       name="city"
+       />
+       <Input
+       placeholder='Country'
+       onChange={(e)=>handleChange(e)}
+       name="country"
+       />
+       <GetButton
+       onClick={()=>getWeatherInfo()}
+       variant='contained'
+       >Get Weather</GetButton>
+    </Container>
   )
 }
