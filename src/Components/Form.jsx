@@ -13,14 +13,15 @@ const Input = styled(InputBase)({
 const GetButton = styled(Button)({
     background:'#e67e22'
 })
-export default function Form() {
+export default function Form({setResult}) {
     const [data,setData] = useState({city:'',country:''})
     const handleChange = (e)=>{
         setData({...data,[e.target.name]:e.target.value});
         console.log(data)
     }
-    const getWeatherInfo =async ({setResult})=>{
+    const getWeatherInfo =async ()=>{
        let response = await getWeather(data.city,data.country);
+       console.log(response);
        setResult(response)
     }
   return (
