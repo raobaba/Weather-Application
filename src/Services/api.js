@@ -7,7 +7,7 @@ export const getWeather =async (city,country) => {
        let response = await axios.get(`${API_URL}?q=${city},${country}&appid=${API_KEY}&units=matric`)
        return response.data;
     } catch (error) {
-        console.log('Error while calling weather api',errro.message);
+        console.log('Error while calling weather api',error.message);
         return error.message;
     }
 }

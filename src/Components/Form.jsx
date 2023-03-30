@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import {Box,InputBase,Button,styled} from "@mui/material";
+import { getWeather } from './../Services/api';
 const Container = styled(Box)({
    background: 'purple',
    padding: 10,
@@ -18,8 +19,9 @@ export default function Form() {
         setData({...data,[e.target.name]:e.target.value});
         console.log(data)
     }
-    const getWeatherInfo = ()=>{
-        
+    const getWeatherInfo =async ({setResult})=>{
+       let response = await getWeather(data.city,data.country);
+       setResult(response)
     }
   return (
     <Container>

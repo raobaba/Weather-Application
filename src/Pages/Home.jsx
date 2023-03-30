@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import {Box,styled} from "@mui/material";
 import SunSet from "../Assests/Images/bg.jpg";
 import Form from './../Components/Form';
@@ -18,12 +18,13 @@ const Image = styled(Box)({
     borderRadius:'20px 0 0 20px'
 })
 export default function Home() {
+    const [result,setResult] = useState();
   return (
     <Component>
        <Image></Image>
        <Box style={{width:'73%',height:'80%'}}>
-         <Form />
-         <Information />
+         <Form setResult={setResult} />
+         <Information result={result} />
        </Box>
     </Component>
   )
